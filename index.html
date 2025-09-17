@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: white;
+            font-family: Arial, sans-serif;
+        }
+        .figure-container {
+            width: 1200px;
+            height: 900px;
+            background: white;
+            margin: 0 auto;
+        }
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="figure-container">
+        <svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+                    refX="9" refY="3.5" orient="auto">
+              <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+            </marker>
+            <pattern id="tumorPattern" patternUnits="userSpaceOnUse" width="6" height="6">
+              <rect width="6" height="6" fill="#ff6b6b" opacity="0.3"/>
+              <circle cx="3" cy="3" r="1.5" fill="#ff6b6b" opacity="0.6"/>
+            </pattern>
+          </defs>
+          
+          <!-- Title -->
+          <text x="600" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#333">
+            Volumetric Measurement Methodology for Spinal Meningiomas
+          </text>
+          
+          <!-- Panel A: Tumor Volume Measurement -->
+          <g id="panelA">
+            <text x="80" y="100" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#333">A. Tumor Volume Calculation</text>
+            
+            <!-- Multiple axial slices representation -->
+            <!-- Slice 1 (top) -->
+            <ellipse cx="135" cy="140" rx="52" ry="38" fill="#e8f4fd" stroke="#4a90e2" stroke-width="2.5" opacity="0.8"/>
+            <ellipse cx="140" cy="135" rx="30" ry="22" fill="url(#tumorPattern)" stroke="#ff6b6b" stroke-width="2.5" opacity="0.8"/>
+            <text x="85" y="150" font-family="Arial, sans-serif" font-size="12" fill="#666">Slice 1</text>
+            
+            <!-- Slice 2 (middle) -->
+            <ellipse cx="180" cy="180" rx="60" ry="45" fill="#e8f4fd" stroke="#4a90e2" stroke-width="3"/>
+            <ellipse cx="188" cy="173" rx="38" ry="27" fill="url(#tumorPattern)" stroke="#ff6b6b" stroke-width="3"/>
+            <text x="115" y="190" font-family="Arial, sans-serif" font-size="12" fill="#666">Slice 2</text>
+            
+            <!-- Slice 3 (bottom) -->
+            <ellipse cx="225" cy="220" rx="57" ry="42" fill="#e8f4fd" stroke="#4a90e2" stroke-width="2.5" opacity="0.8"/>
+            <ellipse cx="230" cy="217" rx="33" ry="24" fill="url(#tumorPattern)" stroke="#ff6b6b" stroke-width="2.5" opacity="0.8"/>
+            <text x="170" y="235" font-family="Arial, sans-serif" font-size="12" fill="#666">Slice 3</text>
+            
+            <!-- Connecting lines to show 3D structure -->
+            <line x1="135" y1="140" x2="180" y2="180" stroke="#ccc" stroke-width="1.5" stroke-dasharray="3,3"/>
+            <line x1="180" y1="180" x2="225" y2="220" stroke="#ccc" stroke-width="1.5" stroke-dasharray="3,3"/>
+            
+            <!-- Height measurement between slices -->
+            <line x1="300" y1="140" x2="300" y2="220" stroke="#333" stroke-width="1.5"/>
+            <line x1="293" y1="140" x2="307" y2="140" stroke="#333" stroke-width="1.5"/>
+            <line x1="293" y1="220" x2="307" y2="220" stroke="#333" stroke-width="1.5"/>
+            <text x="315" y="185" font-family="Arial, sans-serif" font-size="14" fill="#333">Total height</text>
+            
+            <!-- Radius measurements on middle slice -->
+            <line x1="150" y1="173" x2="188" y2="173" stroke="#333" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+            <line x1="188" y1="173" x2="226" y2="173" stroke="#333" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+            <text x="162" y="165" font-family="Arial, sans-serif" font-size="12" fill="#333">r₁</text>
+            <text x="198" y="165" font-family="Arial, sans-serif" font-size="12" fill="#333">r₂</text>
+            
+            <!-- Labels -->
+            <text x="120" y="270" font-family="Arial, sans-serif" font-size="15" fill="#666">Multiple Axial Slices</text>
+            <text x="128" y="290" font-family="Arial, sans-serif" font-size="15" fill="#666">T1 + Contrast</text>
+            
+            <!-- Formula -->
+            <rect x="80" y="320" width="300" height="105" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1.5" rx="8"/>
+            <text x="230" y="350" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" font-weight="bold">Truncated Cone Formula</text>
+            <text x="230" y="375" text-anchor="middle" font-family="Arial, sans-serif" font-size="15">V = (πh/3)(r₁² + r₁r₂ + r₂²)</text>
+            <text x="230" y="395" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#666">Applied between each slice pair</text>
+            <text x="230" y="415" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#666">Total V = Σ V(slice pairs)</text>
+          </g>
+          
+          <!-- Panel B: Growth Rate Calculation -->
+          <g id="panelB">
+            <text x="450" y="100" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#333">B. Tumor Growth Rate</text>
+            
+            <!-- Timeline -->
+            <line x1="480" y1="150" x2="720" y2="150" stroke="#333" stroke-width="3"/>
+            
+            <!-- Time point 1 -->
+            <circle cx="510" cy="150" r="6" fill="#4a90e2"/>
+            <rect x="488" y="165" width="45" height="30" fill="#e8f4fd" stroke="#4a90e2" stroke-width="2"/>
+            <text x="510" y="183" text-anchor="middle" font-family="Arial, sans-serif" font-size="12">MRI 1</text>
+            <text x="510" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">V₁</text>
+            
+            <!-- Time point 2 -->
+            <circle cx="690" cy="150" r="6" fill="#4a90e2"/>
+            <rect x="668" y="165" width="45" height="30" fill="#e8f4fd" stroke="#4a90e2" stroke-width="2"/>
+            <text x="690" y="183" text-anchor="middle" font-family="Arial, sans-serif" font-size="12">MRI 2</text>
+            <text x="690" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">V₂</text>
+            
+            <!-- Delta t -->
+            <line x1="510" y1="128" x2="690" y2="128" stroke="#666" stroke-width="1.5"/>
+            <text x="600" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#666">Δt (days)</text>
+            
+            <!-- Growth rate formula -->
+            <rect x="450" y="320" width="300" height="105" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1.5" rx="8"/>
+            <text x="600" y="350" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" font-weight="bold">Growth Rate Calculation</text>
+            <text x="600" y="375" text-anchor="middle" font-family="Arial, sans-serif" font-size="15">Growth Rate = (V₂ - V₁) / Δt</text>
+            <text x="600" y="405" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#666">Units: mm³/day</text>
+          </g>
+          
+          <!-- Panel C: Tumor Fraction -->
+          <g id="panelC">
+            <text x="820" y="100" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#333">C. Tumor Fraction</text>
+            
+            <!-- Spinal canal at maximal compression -->
+            <ellipse cx="930" cy="180" rx="68" ry="53" fill="#e8f4fd" stroke="#4a90e2" stroke-width="3"/>
+            
+            <!-- Tumor filling significant portion -->
+            <ellipse cx="938" cy="173" rx="45" ry="33" fill="url(#tumorPattern)" stroke="#ff6b6b" stroke-width="3"/>
+            
+            <!-- Labels -->
+            <text x="870" y="270" font-family="Arial, sans-serif" font-size="15" fill="#666">Maximal Compression</text>
+            <text x="893" y="290" font-family="Arial, sans-serif" font-size="15" fill="#666">Level</text>
+            
+            <!-- Legend box for cleaner labeling -->
+            <rect x="1020" y="128" width="150" height="75" fill="#ffffff" stroke="#ddd" stroke-width="1.5" rx="5"/>
+            
+            <!-- Canal volume indicator -->
+            <ellipse cx="1035" cy="148" rx="12" ry="9" fill="#e8f4fd" stroke="#4a90e2" stroke-width="2"/>
+            <text x="1058" y="154" font-family="Arial, sans-serif" font-size="14" fill="#4a90e2">Canal Volume</text>
+            
+            <!-- Tumor volume indicator -->
+            <ellipse cx="1035" cy="178" rx="9" ry="6" fill="url(#tumorPattern)" stroke="#ff6b6b" stroke-width="2"/>
+            <text x="1058" y="184" font-family="Arial, sans-serif" font-size="14" fill="#ff6b6b">Tumor Volume</text>
+            
+            <!-- Formula -->
+            <rect x="820" y="320" width="300" height="105" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1.5" rx="8"/>
+            <text x="970" y="350" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" font-weight="bold">Tumor Fraction</text>
+            <text x="970" y="375" text-anchor="middle" font-family="Arial, sans-serif" font-size="15">Fraction = Tumor Vol / Canal Vol</text>
+            <text x="970" y="405" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#666">At maximal compression slice</text>
+          </g>
+          
+          <!-- Separator lines -->
+          <line x1="412" y1="80" x2="412" y2="440" stroke="#ddd" stroke-width="1.5"/>
+          <line x1="788" y1="80" x2="788" y2="440" stroke="#ddd" stroke-width="1.5"/>
+          
+          <!-- Bottom section: Clinical application -->
+          <rect x="80" y="480" width="1040" height="180" fill="#f1f8ff" stroke="#b3d9ff" stroke-width="1.5" rx="12"/>
+          <text x="600" y="520" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#2c5aa0">Clinical Application</text>
+          
+          <g id="clinicalFlow">
+            <!-- Input -->
+            <rect x="120" y="550" width="180" height="60" fill="#fff" stroke="#4a90e2" stroke-width="3" rx="8"/>
+            <text x="210" y="575" text-anchor="middle" font-family="Arial, sans-serif" font-size="15">Serial MRI</text>
+            <text x="210" y="595" text-anchor="middle" font-family="Arial, sans-serif" font-size="15">T1 + Contrast</text>
+            
+            <!-- Arrow -->
+            <line x1="315" y1="580" x2="375" y2="580" stroke="#333" stroke-width="3" marker-end="url(#arrowhead)"/>
+            
+            <!-- Processing -->
+            <rect x="390" y="550" width="180" height="60" fill="#fff" stroke="#28a745" stroke-width="3" rx="8"/>
+            <text x="480" y="575" text-anchor="middle" font-family="Arial, sans-serif" font-size="15">Volumetric</text>
+            <text x="480" y="595" text-anchor="middle" font-family="Arial, sans-serif" font-size="15">Analysis</text>
+            
+            <!-- Arrow -->
+            <line x1="585" y1="580" x2="645" y2="580" stroke="#333" stroke-width="3" marker-end="url(#arrowhead)"/>
+            
+            <!-- Output -->
+            <rect x="660" y="550" width="180" height="60" fill="#fff" stroke="#dc3545" stroke-width="3" rx="8"/>
+            <text x="750" y="575" text-anchor="middle" font-family="Arial, sans-serif" font-size="15">Growth Metrics</text>
+            <text x="750" y="595" text-anchor="middle" font-family="Arial, sans-serif" font-size="15">& Surgical Timing</text>
+            
+            <!-- Arrow -->
+            <line x1="855" y1="580" x2="915" y2="580" stroke="#333" stroke-width="3" marker-end="url(#arrowhead)"/>
+            
+            <!-- Decision -->
+            <rect x="930" y="550" width="180" height="60" fill="#fff" stroke="#6f42c1" stroke-width="3" rx="8"/>
+            <text x="1020" y="575" text-anchor="middle" font-family="Arial, sans-serif" font-size="15">Clinical Decision</text>
+            <text x="1020" y="595" text-anchor="middle" font-family="Arial, sans-serif" font-size="15">Support</text>
+          </g>
+          
+          <!-- Key findings box -->
+          <rect x="80" y="690" width="1040" height="120" fill="#fff8e1" stroke="#ffb74d" stroke-width="1.5" rx="8"/>
+          <text x="600" y="720" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e65100">Key Study Findings</text>
+          <text x="105" y="750" font-family="Arial, sans-serif" font-size="15" fill="#333">• Log-transformed growth rate significantly correlated with time to surgery (r = -0.64, p = 0.019)</text>
+          <text x="105" y="775" font-family="Arial, sans-serif" font-size="15" fill="#333">• Log-transformed tumor volume inversely associated with surgical timing (r = -0.34, p = 0.019)</text>
+          <text x="105" y="800" font-family="Arial, sans-serif" font-size="15" fill="#333">• Tumor fraction showed no significant association with time to surgery (r = -0.039, p = 0.719)</text>
+          
+          <!-- Study info -->
+          <text x="600" y="870" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#666">
+            N = 91 patients (22 with serial imaging for growth analysis) | Johns Hopkins Hospital 2009-2023
+          </text>
+        </svg>
+    </div>
+    
+    <script>
+        // Instructions for saving as image
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('To save as PNG/JPEG:');
+            console.log('1. Right-click on the figure');
+            console.log('2. Select "Save image as..." or "Copy image"');
+            console.log('3. Choose PNG format for best quality');
+            console.log('4. Or use browser print function to save as PDF');
+        });
+    </script>
+</body>
+</html>
